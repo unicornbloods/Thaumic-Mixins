@@ -21,6 +21,10 @@ public class ThaumicMixinsConfig {
         stoneringFrequency = configuration.getInt("Eldritch Obelisk Frequency", categoryStructures, stoneringFrequency, 0, 999999, "");
         hilltopStonesFrequency = configuration.getInt("Hilltop Stones Frequency", categoryStructures, hilltopStonesFrequency, 0, 999999, "");
         totemFrequency = configuration.getInt("Totem Frequency", categoryStructures, totemFrequency, 0, 999999, "");
+        moundFrequency = configuration.getInt("Mound Frequency", categoryStructures, moundFrequency, 0, 999999, "Higher is less common");
+        stoneRingFrequency = configuration.getInt("Eldritch Obelisk Frequency", categoryStructures, stoneRingFrequency, 0, 999999, "Higher is less common");
+        hillTopStonesFrequency = configuration.getInt("Hilltop Stones Frequency", categoryStructures, hillTopStonesFrequency, 0, 999999, "Higher is less common");
+        totemFrequency = configuration.getInt("Totem Frequency", categoryStructures, totemFrequency, 0, 999999, "Higher is less common");
 
         if (configuration.hasChanged()) {
             configuration.save();
