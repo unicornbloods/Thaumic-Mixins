@@ -77,13 +77,13 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
             if(randPosY < world.getActualHeight()) {
                 world.getChunkFromBlockCoords(MathHelper.floor_double(randPosX), MathHelper.floor_double(randPosZ));
                 WorldGenerator mound = new WorldGenMound();
-                if(random.nextInt(moundFrequency) == 0) {
+                if(moundEnabled && random.nextInt(moundFrequency) == 0) {
                     if(mound.generate(world, random, randPosX, randPosY, randPosZ)) {
                         auraGen = true;
                         int value = random.nextInt(200) + 400;
                         createRandomNodeAt(world, randPosX + 9, randPosY + 8, randPosZ + 9, random, false, true, false);
                     }
-                } else if(random.nextInt(stoneringFrequency) == 0) {
+                } else if(stoneRingEnabled && random.nextInt(stoneRingFrequency) == 0) {
                     WorldGenEldritchRing stonering = new WorldGenEldritchRing();
                     randPosY = randPosY + 8;
                     int w = 11 + random.nextInt(6) * 2;
@@ -98,7 +98,7 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
                         Thread t = new Thread(new MazeThread(chunkX, chunkZ, w, h, random.nextLong()));
                         t.start();
                     }
-                } else if(random.nextInt(hilltopStonesFrequency) == 0) {
+                } else if( hillTopStonesEnabled && random.nextInt(hillTopStonesFrequency) == 0) {
                     randPosY = randPosY + 9;
                     WorldGenerator hilltopStones = new WorldGenHilltopStones();
                     if(hilltopStones.generate(world, random, randPosX, randPosY, randPosZ)) {
@@ -106,7 +106,7 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
                         createRandomNodeAt(world, randPosX, randPosY + 5, randPosZ, random, false, true, false);
                     }
                 }
-                if(random.nextInt(totemFrequency) == 0) {
+                if(totemEnabled && random.nextInt(totemFrequency) == 0) {
                     this.generateTotem(world, random, chunkX, chunkZ, auraGen, newGen);
                 }
             }
