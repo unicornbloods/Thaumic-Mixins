@@ -105,7 +105,8 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
                         auraGen = true;
                         createRandomNodeAt(world, randPosX, randPosY + 5, randPosZ, random, false, true, false);
                     }
-                } else if(random.nextInt(totemFrequency) == 0) {
+                }
+                if(random.nextInt(totemFrequency) == 0) {
                     this.generateTotem(world, random, chunkX, chunkZ, auraGen, newGen);
                 }
             }
