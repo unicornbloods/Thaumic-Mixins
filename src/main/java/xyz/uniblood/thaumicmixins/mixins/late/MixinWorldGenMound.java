@@ -12,13 +12,14 @@ import thaumcraft.common.lib.world.WorldGenMound;
 public abstract class MixinWorldGenMound extends WorldGenerator {
 
     @ModifyVariable(
-            slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=dungeonChest")),
-            method = "generate2",
-            at = @At("STORE"),
-            print = true,
-            ordinal = 3,
-            index = 10,
-            name = "md"
+        slice = @Slice(
+            from = @At(value = "INVOKE", target = "Ljava/util/Random;nextFloat()F", ordinal = 0),
+            to = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I", ordinal = 0)
+        ),
+        method = "generate2",
+        at = @At("STORE"),
+        name = "md",
+        remap = false
     )
     private int md1(int original,  @Local(ordinal = 0, index = 9, name = "rr") float rr) {
         return rr < 0.33F?1:0;
