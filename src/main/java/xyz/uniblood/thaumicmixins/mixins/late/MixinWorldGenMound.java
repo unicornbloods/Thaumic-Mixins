@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Slice;
 import thaumcraft.common.lib.world.WorldGenMound;
 
+import static xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig.moundRareLootEnabled;
+
 @Mixin(WorldGenMound.class)
 public abstract class MixinWorldGenMound extends WorldGenerator {
 
@@ -22,6 +24,9 @@ public abstract class MixinWorldGenMound extends WorldGenerator {
         remap = false
     )
     private int md1(int original,  @Local(ordinal = 0, index = 9, name = "rr") float rr) {
+        if(moundRareLootEnabled) {
+            return original;
+        }
         return rr < 0.33F?1:0;
     }
 

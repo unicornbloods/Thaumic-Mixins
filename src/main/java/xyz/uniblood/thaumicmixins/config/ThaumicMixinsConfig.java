@@ -18,6 +18,8 @@ public class ThaumicMixinsConfig {
     public static boolean totemEnabled = true;
     public static int totemFrequency = 10;
 
+    public static boolean moundRareLootEnabled = true;
+
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
@@ -29,6 +31,8 @@ public class ThaumicMixinsConfig {
         hillTopStonesFrequency = configuration.getInt("Hilltop Stones Frequency", categoryStructures, hillTopStonesFrequency, 0, 999999, "Higher is less common");
         totemEnabled = configuration.getBoolean("Totem Enabled", categoryStructures, totemEnabled,"");
         totemFrequency = configuration.getInt("Totem Frequency", categoryStructures, totemFrequency, 0, 999999, "Higher is less common");
+
+        moundRareLootEnabled = configuration.getBoolean("Mound Rare Loot Enabled", categoryStructures, moundRareLootEnabled,"Remove Rare Urns and Crates from the mounds");
 
         if (configuration.hasChanged()) {
             configuration.save();
