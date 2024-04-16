@@ -19,6 +19,7 @@ public class ThaumicMixinsLateMixins implements ILateMixinLoader {
     public List<String> getMixins(Set<String> loadedMods) {
         List<String> mixins = new ArrayList<>();
         mixins.add("MixinThaumcraftWorldGenerator");
+        mixins.add("MixinWorldGenMound");
         return mixins;
     }
 }
