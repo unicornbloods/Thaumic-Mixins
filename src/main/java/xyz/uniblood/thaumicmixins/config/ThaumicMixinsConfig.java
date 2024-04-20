@@ -8,7 +8,9 @@ public class ThaumicMixinsConfig {
 
     //Category names
     static final String categoryStructures = "structures";
+    static final String categoryLoot = "loot";
 
+    // Structure
     public static boolean moundEnabled = true;
     public static int moundFrequency = 150;
     public static boolean stoneRingEnabled = true;
@@ -20,9 +22,14 @@ public class ThaumicMixinsConfig {
 
     public static boolean moundRareLootEnabled = true;
 
+    // Loot
+    public static boolean championLootBagEnabled = true;
+    public static int championLootBagRarityMax = 2;
+
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
+        // Structures
         moundEnabled = configuration.getBoolean("Mound Enabled", categoryStructures, moundEnabled, "");
         moundFrequency = configuration.getInt("Mound Frequency", categoryStructures, moundFrequency, 0, 999999, "Higher is less common");
         stoneRingEnabled = configuration.getBoolean("Eldritch Obelisk Enabled", categoryStructures, stoneRingEnabled, "");
@@ -33,6 +40,10 @@ public class ThaumicMixinsConfig {
         totemFrequency = configuration.getInt("Totem Frequency", categoryStructures, totemFrequency, 0, 999999, "Higher is less common");
 
         moundRareLootEnabled = configuration.getBoolean("Mound Rare Loot Enabled", categoryStructures, moundRareLootEnabled,"Remove Rare Urns and Crates from the mounds");
+
+        // Loot
+        championLootBagEnabled = configuration.getBoolean("Champion Loot Bag Drop Enabled", categoryLoot, championLootBagEnabled,"Toggle champion mobs dropping loot bags");
+        championLootBagRarityMax = configuration.getInt("Max Champion Loot Bag Rarity", categoryLoot, championLootBagRarityMax, 0, 2, "Set max rarity for champion mob loot bags [0 = common, 1 = uncommon, 2 = rare]");
 
         if (configuration.hasChanged()) {
             configuration.save();
