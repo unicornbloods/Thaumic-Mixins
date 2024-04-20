@@ -11,12 +11,14 @@ A mod to add more configuration to Thaumcraft 4. Possibly bugfixes as well.
 * Toggle for each individual structure
 * Config for structure rarity
 * Toggle for Rare crates/urns in Mound structure
+* Toggle for champion mobs dropping loot bags
+* Config for max loot bag rarity from champions
 
 # Planned Features
 
-* Toggle for champion mobs dropping loot bags
 * Toggle for village structure spawns
 * Fix the maze generation
+* Whitelist config for adding more possible champion mobs
 
 # Credits
 
