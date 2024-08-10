@@ -21,6 +21,7 @@ public class ThaumicMixinsConfig {
     public static int totemFrequency = 10;
 
     public static boolean moundRareLootEnabled = true;
+    public static int[] auraNodeDimWhitelist = {0, 7};
 
     // Loot
     public static boolean championLootBagEnabled = true;
@@ -40,6 +41,7 @@ public class ThaumicMixinsConfig {
         totemFrequency = configuration.getInt("Totem Frequency", categoryStructures, totemFrequency, 0, 999999, "Higher is less common");
 
         moundRareLootEnabled = configuration.getBoolean("Mound Rare Loot Enabled", categoryStructures, moundRareLootEnabled,"Remove Rare Urns and Crates from the mounds");
+        auraNodeDimWhitelist = configuration.get(categoryStructures, "Aura Node Dimension Whitelist",  auraNodeDimWhitelist, "").getIntList();
 
         // Loot
         championLootBagEnabled = configuration.getBoolean("Champion Loot Bag Drop Enabled", categoryLoot, championLootBagEnabled,"Toggle champion mobs dropping loot bags");

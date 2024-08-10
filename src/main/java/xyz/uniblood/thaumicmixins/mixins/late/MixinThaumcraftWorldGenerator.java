@@ -6,6 +6,7 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
+import org.apache.commons.lang3.ArrayUtils;
 import org.spongepowered.asm.mixin.Mixin;
 
 import org.spongepowered.asm.mixin.Overwrite;
@@ -59,7 +60,8 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
             this.generateOres(world, random, chunkX, chunkZ, newGen);
         }
 
-        if(blacklist != 0 && blacklist != 2 && Config.genAura && (newGen || Config.regenAura)) {
+        if(Config.genAura && (newGen || Config.regenAura) && ArrayUtils.contains(auraNodeDimWhitelist, world.provider.dimensionId)) {
+
             ChunkPosition var7 = (new MapGenScatteredFeature()).func_151545_a(world, chunkX * 16 + 8, world.getHeightValue(chunkX * 16 + 8, chunkZ * 16 + 8), chunkZ * 16 + 8);
             if(var7 != null && !this.structureNode.containsKey(var7.hashCode())) {
                 auraGen = true;
