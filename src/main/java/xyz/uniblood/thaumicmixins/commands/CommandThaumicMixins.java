@@ -3,6 +3,7 @@ package xyz.uniblood.thaumicmixins.commands;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
+import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ICommandAction;
 
 import java.util.Arrays;
@@ -15,7 +16,9 @@ public class CommandThaumicMixins extends CommandBase
     private final ICommandAction[] actions;
 
     public CommandThaumicMixins() {
-        this.actions = new ICommandAction[] {};
+        this.actions = new ICommandAction[] {
+            new ActionForgetResearch(this)
+        };
     }
 
     @Override
@@ -40,11 +43,11 @@ public class CommandThaumicMixins extends CommandBase
     public void processCommand(ICommandSender sender, String[] args)
     {
         if (args.length < 1) {
-            throw new WrongUsageException(USAGE_KEY, new Object[0]);
+            throw new WrongUsageException(USAGE_KEY);
         }
         final var action = this.getActionByName(args[0]);
         if (action == null) {
-            throw new WrongUsageException(USAGE_KEY, new Object[0]);
+            throw new WrongUsageException(USAGE_KEY);
         }
         action.process(sender, args);
     }
@@ -56,7 +59,7 @@ public class CommandThaumicMixins extends CommandBase
         }
         final var action = this.getActionByName(args[0]);
         if (action == null) {
-            throw new WrongUsageException(USAGE_KEY, new Object[0]);
+            throw new WrongUsageException(USAGE_KEY);
         }
         return action.addTabCompletionOptions(sender, args);
     }
