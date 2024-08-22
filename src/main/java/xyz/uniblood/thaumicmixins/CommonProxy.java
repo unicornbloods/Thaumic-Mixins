@@ -3,6 +3,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import xyz.uniblood.thaumicmixins.commands.CommandThaumicMixins;
 import xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig;
 
 import java.io.File;
@@ -26,5 +27,7 @@ public class CommonProxy {
     public void postInit(FMLPostInitializationEvent event) {}
 
     // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {}
+    public void serverStarting(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandThaumicMixins());
+    }
 }
