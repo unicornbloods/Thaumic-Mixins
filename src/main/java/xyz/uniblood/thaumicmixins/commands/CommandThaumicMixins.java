@@ -4,6 +4,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetResearch;
+import xyz.uniblood.thaumicmixins.commands.actions.ActionListResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ICommandAction;
 
 import java.util.Arrays;
@@ -17,7 +18,8 @@ public class CommandThaumicMixins extends CommandBase
 
     public CommandThaumicMixins() {
         this.actions = new ICommandAction[] {
-            new ActionForgetResearch(this)
+            new ActionForgetResearch(this),
+            new ActionListResearch(this),
         };
     }
 
