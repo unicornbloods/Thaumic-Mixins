@@ -86,6 +86,7 @@ public class ActionListResearch extends CommandAction
         }
         return CommandBase.getPlayer(sender, args[ARG_INDEX_TARGET_PLAYER]);
     }
+    
     private static String argSearchText(String[] args) {
         if (args == null || args.length < ARG_INDEX_SEARCH_TEXT_START + 1) {
             return null;
