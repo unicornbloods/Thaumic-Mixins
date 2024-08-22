@@ -1,1 +1,6 @@
-commands.tmixins.usage=If you're reading this, you are permitted to poke fun at rndmorris's forgetfulness until he fixes it
+commands.tmixins.usage=/tmixins <forgetResearch> <arguments ...>
+commands.tmixins.forgetresearch.usage=/tmixins forgetResearch <player> <research key> [refund sticky warp]
+commands.tmixins.forgetresearch.noresearch=Could not find research for key '%s'
+commands.tmixins.forgetresearch.doesnotknow=%s has not completed '%s'
+commands.tmixins.forgetresearch.success=%s has forgotten about '%s'
+commands.tmixins.forgetresearch.notify=%s has made you forget about '%s' 
