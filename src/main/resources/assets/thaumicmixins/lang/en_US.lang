@@ -1,9 +1,11 @@
 commands.tmixins.usage=/tmixins <forgetResearch | listResearch> <arguments ...>
 
-commands.tmixins.forgetresearch.usage=/tmixins forgetResearch <player> <research key> [refund sticky warp]
+commands.tmixins.forgetresearch.usage=/tmixins forgetResearch <player> <research key | *> [refund sticky warp]
 commands.tmixins.forgetresearch.noresearch=Could not find research for key '%s'
 commands.tmixins.forgetresearch.doesnotknow=%s has not completed '%s'
 commands.tmixins.forgetresearch.success=%s has forgotten about '%s'
 commands.tmixins.forgetresearch.notify=%s has made you forget about '%s' 
+commands.tmixins.forgetresearch.successall=%s has forgotten about everything
+commands.tmixins.forgetresearch.notifyall=%s has made you forget everything 
 
 commands.tmixins.listresearch.usage=/tmixins listResearch <player> [search text]
