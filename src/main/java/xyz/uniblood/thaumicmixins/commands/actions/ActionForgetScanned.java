@@ -27,10 +27,6 @@ public class ActionForgetScanned extends CommandAction
     public static final int ARG_INDEX_TARGET_PLAYER = 1;
     public static final int ARG_INDEX_TARGET_TYPE = 2;
 
-    public ActionForgetScanned(CommandBase owningCommand) {
-        super(owningCommand);
-    }
-
     @Override
     public String getName()
     {

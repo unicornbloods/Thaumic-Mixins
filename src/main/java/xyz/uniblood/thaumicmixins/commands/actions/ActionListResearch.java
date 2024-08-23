@@ -9,7 +9,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import thaumcraft.common.Thaumcraft;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -20,10 +19,6 @@ public class ActionListResearch extends CommandAction
 
     public static final int ARG_INDEX_TARGET_PLAYER = 1;
     public static final int ARG_INDEX_SEARCH_TEXT_START = 2;
-
-    public ActionListResearch(CommandBase owningCommand) {
-        super(owningCommand);
-    }
 
     @Override
     public String getName()
@@ -86,7 +81,7 @@ public class ActionListResearch extends CommandAction
         }
         return CommandBase.getPlayer(sender, args[ARG_INDEX_TARGET_PLAYER]);
     }
-    
+
     private static String argSearchText(String[] args) {
         if (args == null || args.length < ARG_INDEX_SEARCH_TEXT_START + 1) {
             return null;
