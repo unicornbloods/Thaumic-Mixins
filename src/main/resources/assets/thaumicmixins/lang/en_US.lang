@@ -1,0 +1,22 @@
+commands.tmixins.usage=/tmixins <subCommand> <arguments ...>
+
+commands.tmixins.forgetresearch.usage=/tmixins forgetResearch <player> <research key | *> [refund sticky warp]
+commands.tmixins.forgetresearch.noresearch=Could not find research for key '%s'
+commands.tmixins.forgetresearch.doesnotknow=%s has not completed '%s'
+commands.tmixins.forgetresearch.success=%s has forgotten about '%s'
+commands.tmixins.forgetresearch.notify=%s has made you forget about '%s' 
+commands.tmixins.forgetresearch.successall=%s has forgotten about everything
+commands.tmixins.forgetresearch.notifyall=%s has made you forget everything 
+
+commands.tmixins.listresearch.usage=/tmixins listResearch <player> [search text...]
+
+commands.tmixins.forgetscanned.usage=/tmixins forgetScanned <player> <objects | entities | nodes | *>
+commands.tmixins.forgetscanned.invalidtype=Unknown argument '%s'
+commands.tmixins.forgetscanned.success=%s has forgotten %d scanned %s
+commands.tmixins.forgetscanned.notify=%s has made you forget your scanned %s
+commands.tmixins.forgetscanned.successall=%s has forgotten all %d things they've scanned
+commands.tmixins.forgetscanned.notifyall=%s has made you forget everything you've scanned
+
+commands.tmixins.findresearch.usage=/tmixins findResearch <search text...>
+commands.tmixins.findresearch.category=--- Category: %s ---
+commands.tmixins.findresearch.nonefound=No research found matching '%s'
