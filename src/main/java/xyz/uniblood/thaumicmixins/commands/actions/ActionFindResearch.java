@@ -6,18 +6,18 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import thaumcraft.api.research.ResearchCategories;
 
-public class ActionFindResearchKey extends CommandAction
+public class ActionFindResearch extends CommandAction
 {
-    public static final String USAGE_KEY = "commands.tmixins.findresearchkey.usage";
-    public static final String CATEGORY_HEADER_KEY = "commands.tmixins.findresearchkey.category";
-    public static final String NONE_FOUND_KEY = "commands.tmixins.findresearchkey.nonefound";
+    public static final String USAGE_KEY = "commands.tmixins.findresearch.usage";
+    public static final String CATEGORY_HEADER_KEY = "commands.tmixins.findresearch.category";
+    public static final String NONE_FOUND_KEY = "commands.tmixins.findresearch.nonefound";
 
     public static final int ARG_INDEX_SEARCH_TEXT_START = 1;
 
     @Override
     public String getName()
     {
-        return "findResearchKey";
+        return "findResearch";
     }
 
     @Override
@@ -42,7 +42,7 @@ public class ActionFindResearchKey extends CommandAction
             var research = category.research
                 .values()
                 .stream()
-                .filter(r -> r.getName().toUpperCase().contains(searchTextUpper));
+                .filter(r -> r.getName().toUpperCase().contains(searchTextUpper) || r.key.toUpperCase().contains(searchTextUpper));
             final var iterator = research.iterator();
             if (!iterator.hasNext()) {
                 continue;

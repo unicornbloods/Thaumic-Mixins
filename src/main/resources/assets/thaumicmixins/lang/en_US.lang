@@ -17,6 +17,6 @@ commands.tmixins.forgetscanned.notify=%s has made you forget your scanned %s
 commands.tmixins.forgetscanned.successall=%s has forgotten all %d things they've scanned
 commands.tmixins.forgetscanned.notifyall=%s has made you forget everything you've scanned
 
-commands.tmixins.findresearchkey.usage=/tmixins findResearchKey <search text...>
-commands.tmixins.findresearchkey.category=--- Category: %s ---
-commands.tmixins.findresearchkey.nonefound=No research found matching '%s'
+commands.tmixins.findresearch.usage=/tmixins findResearch <search text...>
+commands.tmixins.findresearch.category=--- Category: %s ---
+commands.tmixins.findresearch.nonefound=No research found matching '%s'

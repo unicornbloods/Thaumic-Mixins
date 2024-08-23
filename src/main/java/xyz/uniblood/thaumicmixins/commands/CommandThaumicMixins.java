@@ -3,7 +3,7 @@ package xyz.uniblood.thaumicmixins.commands;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
-import xyz.uniblood.thaumicmixins.commands.actions.ActionFindResearchKey;
+import xyz.uniblood.thaumicmixins.commands.actions.ActionFindResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetScanned;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionListResearch;
@@ -23,7 +23,7 @@ public class CommandThaumicMixins extends CommandBase
     public CommandThaumicMixins() {
         final var actions = new LinkedList<ICommandAction>();
         if (ThaumicMixinsConfig.enableFindResearch) {
-            actions.add(new ActionFindResearchKey());
+            actions.add(new ActionFindResearch());
         }
         if (ThaumicMixinsConfig.enableForgetResearch) {
             actions.add(new ActionForgetResearch());
