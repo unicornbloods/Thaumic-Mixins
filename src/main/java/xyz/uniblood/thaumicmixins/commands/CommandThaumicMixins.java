@@ -20,10 +20,10 @@ public class CommandThaumicMixins extends CommandBase
 
     public CommandThaumicMixins() {
         this.actions = new ICommandAction[] {
-            new ActionForgetResearch(this),
-            new ActionListResearch(this),
-            new ActionForgetScanned(this),
-            new ActionFindResearchKey(this),
+            new ActionFindResearchKey(),
+            new ActionForgetResearch(),
+            new ActionForgetScanned(),
+            new ActionListResearch(),
         };
     }
 

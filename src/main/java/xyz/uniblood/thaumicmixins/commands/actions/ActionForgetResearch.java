@@ -42,11 +42,6 @@ public class ActionForgetResearch extends CommandAction
     public static final String TRUE = "true";
     public static final String FALSE = "false";
 
-    public ActionForgetResearch(CommandBase owningCommand)
-    {
-        super(owningCommand);
-    }
-
     @Override
     public String getName()
     {

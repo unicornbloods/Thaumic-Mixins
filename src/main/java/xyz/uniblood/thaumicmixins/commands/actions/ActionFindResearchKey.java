@@ -1,6 +1,5 @@
 package xyz.uniblood.thaumicmixins.commands.actions;
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.util.ChatComponentText;
@@ -14,10 +13,6 @@ public class ActionFindResearchKey extends CommandAction
     public static final String NONE_FOUND_KEY = "commands.tmixins.findresearchkey.nonefound";
 
     public static final int ARG_INDEX_SEARCH_TEXT_START = 1;
-
-    public ActionFindResearchKey(CommandBase owningCommand) {
-        super(owningCommand);
-    }
 
     @Override
     public String getName()
@@ -36,7 +31,7 @@ public class ActionFindResearchKey extends CommandAction
             throw new WrongUsageException(USAGE_KEY);
         }
         final var searchText = argSearchText(args);
-        final var searchTextUpper = searchText != null ? searchText.toUpperCase() : null;
+        final var searchTextUpper = searchText != null ? searchText.toUpperCase() : "";
         final var listMessageContents = new StringBuilder();
 
         var foundAny = false;
@@ -46,10 +41,8 @@ public class ActionFindResearchKey extends CommandAction
             final var category = categories.get(categoryKey);
             var research = category.research
                 .values()
-                .stream();
-            if (searchTextUpper != null) {
-                research = research.filter(r -> r.getName().toUpperCase().contains(searchTextUpper));
-            }
+                .stream()
+                .filter(r -> r.getName().toUpperCase().contains(searchTextUpper));
             final var iterator = research.iterator();
             if (!iterator.hasNext()) {
                 continue;
