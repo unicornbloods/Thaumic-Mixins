@@ -7,8 +7,17 @@ import net.minecraftforge.common.config.Configuration;
 public class ThaumicMixinsConfig {
 
     //Category names
+    static final String categoryCommands = "commands";
     static final String categoryStructures = "structures";
     static final String categoryLoot = "loot";
+
+    // Commands
+    public static boolean enableCommand = true;
+    public static int commandPermissionLevel = 2;
+    public static boolean enableFindResearch = true;
+    public static boolean enableForgetResearch = true;
+    public static boolean enableForgetScanned = true;
+    public static boolean enableListResearch = true;
 
     // Structure
     public static boolean moundEnabled = true;
@@ -29,6 +38,13 @@ public class ThaumicMixinsConfig {
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
+
+        enableCommand = configuration.getBoolean("Enable Command", categoryCommands, enableCommand, "Enable the /tmixins command");
+        commandPermissionLevel = configuration.getInt("Command Required Permission Level", categoryCommands, commandPermissionLevel, 0, 4, "0 (all), 1 (moderator), 2 (gamemaster), 3 (admin), and 4 (owner)");
+        enableFindResearch = configuration.getBoolean("findResearch Enabled", categoryCommands, enableFindResearch, "Enable the 'findResearch' subcommand");
+        enableForgetResearch = configuration.getBoolean("forgetResearch Enabled", categoryCommands, enableForgetResearch, "Enable the 'forgetResearch' subcommand");
+        enableForgetScanned = configuration.getBoolean("forgetScanned Enabled", categoryCommands, enableForgetScanned, "Enable the 'forgetScanned' subcommand");
+        enableListResearch = configuration.getBoolean("listResearch Enabled", categoryCommands, enableListResearch, "Enable the 'listResearch' subcommand");
 
         // Structures
         moundEnabled = configuration.getBoolean("Mound Enabled", categoryStructures, moundEnabled, "");
