@@ -1,4 +1,4 @@
-commands.tmixins.usage=/tmixins <findResearchKey | forgetResearch | forgetScanned | listResearch> <arguments ...>
+commands.tmixins.usage=/tmixins <subCommand> <arguments ...>
 
 commands.tmixins.forgetresearch.usage=/tmixins forgetResearch <player> <research key | *> [refund sticky warp]
 commands.tmixins.forgetresearch.noresearch=Could not find research for key '%s'

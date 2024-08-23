@@ -28,6 +28,8 @@ public class CommonProxy {
 
     // register server commands in this event handler (Remove if not needed)
     public void serverStarting(FMLServerStartingEvent event) {
-        event.registerServerCommand(new CommandThaumicMixins());
+        if (ThaumicMixinsConfig.enableCommand) {
+            event.registerServerCommand(new CommandThaumicMixins());
+        }
     }
 }

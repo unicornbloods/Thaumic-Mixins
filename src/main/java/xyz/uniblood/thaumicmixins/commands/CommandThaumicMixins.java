@@ -8,8 +8,10 @@ import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetScanned;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionListResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ICommandAction;
+import xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CommandThaumicMixins extends CommandBase
@@ -19,12 +21,20 @@ public class CommandThaumicMixins extends CommandBase
     private final ICommandAction[] actions;
 
     public CommandThaumicMixins() {
-        this.actions = new ICommandAction[] {
-            new ActionFindResearchKey(),
-            new ActionForgetResearch(),
-            new ActionForgetScanned(),
-            new ActionListResearch(),
-        };
+        final var actions = new LinkedList<ICommandAction>();
+        if (ThaumicMixinsConfig.enableFindResearch) {
+            actions.add(new ActionFindResearchKey());
+        }
+        if (ThaumicMixinsConfig.enableForgetResearch) {
+            actions.add(new ActionForgetResearch());
+        }
+        if (ThaumicMixinsConfig.enableForgetScanned) {
+            actions.add(new ActionForgetScanned());
+        }
+        if (ThaumicMixinsConfig.enableListResearch) {
+            actions.add(new ActionListResearch());
+        }
+        this.actions = actions.toArray(new ICommandAction[0]);
     }
 
     @Override
@@ -36,7 +46,7 @@ public class CommandThaumicMixins extends CommandBase
     @Override
     public int getRequiredPermissionLevel()
     {
-        return 3; // to-do: load from config?
+        return ThaumicMixinsConfig.commandPermissionLevel;
     }
 
     @Override
