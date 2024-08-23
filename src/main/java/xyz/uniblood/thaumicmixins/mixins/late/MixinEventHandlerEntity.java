@@ -29,6 +29,10 @@ import static xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig.championLoot
 @Mixin(value = EventHandlerEntity.class, remap = false)
 public abstract class MixinEventHandlerEntity {
 
+    /**
+     * @author Unicornbl00d
+     * @reason Enable disabling drops via config values
+     */
     @Overwrite
     @SubscribeEvent
     public void livingDrops(LivingDropsEvent event) {
