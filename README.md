@@ -15,6 +15,7 @@ A mod to add more configuration to Thaumcraft 4. Possibly bugfixes as well.
 * Config for max loot bag rarity from champions
 * Whitelist for what dimensions nodes spawn in
 * Admin command to list and trim player research and scans
+* Auto-completion support for the `/thaumcraft` command
 
 # Planned Features
 
