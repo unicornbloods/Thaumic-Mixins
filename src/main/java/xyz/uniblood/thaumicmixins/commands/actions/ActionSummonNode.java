@@ -142,14 +142,21 @@ public class ActionSummonNode extends CommandAction
             return;
         }
 
+        var dirty = false;
         if (type != null) {
             node.setNodeType(type);
+            dirty = true;
         }
         if (modifier != null) {
             node.setNodeModifier(modifier.toNodeModifier());
+            dirty = true;
         }
         if (aspects != null) {
             node.setAspects(aspects);
+            dirty = true;
+        }
+        if (dirty) {
+            node.markDirty();
         }
 
         sendSuccessMessage(sender, KEY_SUCCESS, x, y, z);
