@@ -87,4 +87,4 @@ Summon a random node at the specified coordinates. The node's properties can be 
 
 * Unicorn Blood - Main Dev
 * GTNH + jss2a98aj - Helping me with random bugs
-* rndmorris - tmixins command
+* rndmorris - `/tmixins` command, and `/thaumcraft` auto-complete
