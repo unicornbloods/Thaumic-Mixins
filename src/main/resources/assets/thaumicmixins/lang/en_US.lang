@@ -20,3 +20,6 @@ commands.tmixins.forgetscanned.notifyall=%s has made you forget everything you'v
 commands.tmixins.findresearch.usage=/tmixins findResearch <search text...>
 commands.tmixins.findresearch.category=--- Category: %s ---
 commands.tmixins.findresearch.nonefound=No research found matching '%s'
+
+commands.tmixins.summonnode.usage=/tmixins summonNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [--small] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]]
+commands.tmixins.summonnode.success=Summoned a %s %s node at %d %d %d
