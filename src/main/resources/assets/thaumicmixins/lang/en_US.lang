@@ -22,4 +22,10 @@ commands.tmixins.findresearch.category=--- Category: %s ---
 commands.tmixins.findresearch.nonefound=No research found matching '%s'
 
 commands.tmixins.summonnode.usage=/tmixins summonNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [--small] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]]
-commands.tmixins.summonnode.success=Summoned a %s %s node at %d %d %d
+commands.tmixins.summonnode.success=Summoned a node at %d %d %d
+commands.tmixins.summonnode.error=Something went wrong
+commands.tmixins.summonnode.incomplete=Incomplete argument '%s'
+commands.tmixins.summonnode.missing=Missing argument '%s'
+commands.tmixins.summonnode.missingaspect=Unknown aspect '%s'
+commands.tmixins.summonnode.missingmodifier=Unknown node modifier '%s'
+commands.tmixins.summonnode.missingtype=Unknown node type '%s'
