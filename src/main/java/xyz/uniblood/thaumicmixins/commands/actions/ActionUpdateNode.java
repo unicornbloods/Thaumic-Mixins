@@ -177,7 +177,10 @@ public class ActionUpdateNode extends CommandAction
         if (addAspects != null) {
             for (var aspect : addAspects.getAspects()) {
                 nodeAspects.remove(aspect);
-                nodeAspects.add(aspect, addAspects.getAmount(aspect));
+                final var addAmount = addAspects.getAmount(aspect);
+                if (addAmount > 0) {
+                    nodeAspects.add(aspect, addAspects.getAmount(aspect));
+                }
             }
             aspectsDirty = true;
         }
