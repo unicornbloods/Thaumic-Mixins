@@ -134,7 +134,7 @@ public class ActionSummonNode extends CommandAction
         }
 
         final var world = sender.getEntityWorld();
-        ThaumcraftWorldGenerator.createRandomNodeAt(world, x, y, z, world.rand, false, false, small);
+        ThaumcraftWorldGenerator.createRandomNodeAt(world, x, y, z, world.rand, type == NodeType.PURE, type == NodeType.DARK, small);
         final var tileEntity = world.getTileEntity(x, y, z);
         if (!(tileEntity instanceof TileNode node)) {
             ThaumicMixins.LOG.error("Could not find a TileNode at ({}, {}, {})", x, y, z);
@@ -143,7 +143,7 @@ public class ActionSummonNode extends CommandAction
         }
 
         var dirty = false;
-        if (type != null) {
+        if (type != null && type != NodeType.DARK && type != NodeType.PURE) {
             node.setNodeType(type);
             dirty = true;
         }
