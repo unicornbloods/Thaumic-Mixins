@@ -8,6 +8,7 @@ import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionForgetScanned;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionListResearch;
 import xyz.uniblood.thaumicmixins.commands.actions.ActionSummonNode;
+import xyz.uniblood.thaumicmixins.commands.actions.ActionUpdateNode;
 import xyz.uniblood.thaumicmixins.commands.actions.ICommandAction;
 import xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig;
 
@@ -34,6 +35,9 @@ public class CommandThaumicMixins extends CommandBase
         }
         if (ThaumicMixinsConfig.enableListResearch) {
             actions.add(new ActionListResearch());
+        }
+        if (ThaumicMixinsConfig.enableUpdateNode) {
+            actions.add(new ActionUpdateNode());
         }
         if (ThaumicMixinsConfig.enableSummonNode) {
             actions.add(new ActionSummonNode());

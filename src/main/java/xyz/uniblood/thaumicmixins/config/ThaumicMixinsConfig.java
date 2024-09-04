@@ -18,6 +18,7 @@ public class ThaumicMixinsConfig {
     public static boolean enableForgetResearch = true;
     public static boolean enableForgetScanned = true;
     public static boolean enableListResearch = true;
+    public static boolean enableUpdateNode = true;
     public static boolean enableSummonNode = true;
 
     // Structure
@@ -46,6 +47,7 @@ public class ThaumicMixinsConfig {
         enableForgetResearch = configuration.getBoolean("forgetResearch Enabled", categoryCommands, enableForgetResearch, "Enable the 'forgetResearch' subcommand");
         enableForgetScanned = configuration.getBoolean("forgetScanned Enabled", categoryCommands, enableForgetScanned, "Enable the 'forgetScanned' subcommand");
         enableListResearch = configuration.getBoolean("listResearch Enabled", categoryCommands, enableListResearch, "Enable the 'listResearch' subcommand");
+        enableUpdateNode = configuration.getBoolean("updateNode Enabled", categoryCommands, enableUpdateNode, "Enable the 'updateNode' subcommand");
         enableSummonNode = configuration.getBoolean("summonNode Enabled", categoryCommands, enableSummonNode, "Enable the 'summonNode' subcommand");
 
         // Structures
