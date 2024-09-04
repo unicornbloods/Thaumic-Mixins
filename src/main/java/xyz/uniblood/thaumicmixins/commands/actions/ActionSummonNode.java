@@ -156,6 +156,7 @@ public class ActionSummonNode extends CommandAction
         }
         if (dirty) {
             node.markDirty();
+            world.markBlockForUpdate(x, y, z);
         }
 
         sendSuccessMessage(sender, KEY_SUCCESS, x, y, z);

@@ -29,3 +29,12 @@ commands.tmixins.summonnode.missingaspect=Unknown aspect '%s'
 commands.tmixins.summonnode.missingmodifier=Unknown node modifier '%s'
 commands.tmixins.summonnode.missingnode=No node found at (%d, %d, %d).
 commands.tmixins.summonnode.missingtype=Unknown node type '%s'
+
+commands.tmixins.updatenode.usage=/tmixins updateNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]] [-r <aspect1>[ -r <aspect2>[ ...]]]
+commands.tmixins.updatenode.success=Updated a node at %d %d %d
+commands.tmixins.updatenode.incomplete=Incomplete argument '%s'
+commands.tmixins.updatenode.missing=Missing argument '%s'
+commands.tmixins.updatenode.missingaspect=Unknown aspect '%s'
+commands.tmixins.updatenode.missingmodifier=Unknown node modifier '%s'
+commands.tmixins.updatenode.missingnode=No node found at (%d, %d, %d).
+commands.tmixins.updatenode.missingtype=Unknown node type '%s'
