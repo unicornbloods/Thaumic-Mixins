@@ -25,11 +25,11 @@ import java.util.stream.Collectors;
 public class ActionSummonNode extends CommandAction
 {
     private static final String USAGE_KEY = "commands.tmixins.summonnode.usage";
-    private static final String KEY_ERROR = "commands.tmixins.summonnode.error";
     private static final String KEY_INCOMPLETE = "commands.tmixins.summonnode.incomplete";
     private static final String KEY_MISSING = "commands.tmixins.summonnode.missing";
     private static final String KEY_MISSING_ASPECT = "commands.tmixins.summonnode.missingaspect";
     private static final String KEY_MISSING_MODIFIER = "commands.tmixins.summonnode.missingmodifier";
+    private static final String KEY_MISSING_NODE = "commands.tmixins.summonnode.missingnode";
     private static final String KEY_MISSING_TYPE = "commands.tmixins.summonnode.missingtype";
     private static final String KEY_SUCCESS = "commands.tmixins.summonnode.success";
 
@@ -66,7 +66,7 @@ public class ActionSummonNode extends CommandAction
         ModifierOptions modifier = null;
         NodeType type = null;
         boolean small = false;
-        final var coords = parseCoordinates(sender, args);
+        final var coords = parseCoordinates(sender, args[ARG_INDEX_X], args[ARG_INDEX_Y], args[ARG_INDEX_Z]);
         final int x = (int) coords.xCoord, y = (int) coords.yCoord, z = (int) coords.zCoord;
 
         if (searchResults.typeFlagIndex > -1) {
@@ -137,8 +137,7 @@ public class ActionSummonNode extends CommandAction
         ThaumcraftWorldGenerator.createRandomNodeAt(world, x, y, z, world.rand, type == NodeType.PURE, type == NodeType.DARK, small);
         final var tileEntity = world.getTileEntity(x, y, z);
         if (!(tileEntity instanceof TileNode node)) {
-            ThaumicMixins.LOG.error("Could not find a TileNode at ({}, {}, {})", x, y, z);
-            sendErrorMessage(sender, KEY_ERROR);
+            sendErrorMessage(sender, KEY_MISSING_NODE, x, y, z);
             return;
         }
 
@@ -185,51 +184,6 @@ public class ActionSummonNode extends CommandAction
             }
         }
         return searchResults;
-    }
-
-    private Vec3 parseCoordinates(ICommandSender sender, String[] args) {
-        final var playerCoords = sender.getPlayerCoordinates();
-        var x = playerCoords.posX;
-        var y = playerCoords.posY;
-        var z = playerCoords.posZ;
-        x = MathHelper.floor_double(CommandBase.func_110666_a(sender, x, args[ARG_INDEX_X]));
-        y = MathHelper.floor_double(CommandBase.func_110666_a(sender, y, args[ARG_INDEX_Y]));
-        z = MathHelper.floor_double(CommandBase.func_110666_a(sender, z, args[ARG_INDEX_Z]));
-        return Vec3.createVectorHelper(x, y, z);
-    }
-
-    private Integer tryParseInt(String[] args, int atIndex) {
-        if (atIndex >= args.length) {
-            return null;
-        }
-        try {
-            return Integer.parseInt(args[atIndex]);
-        } catch (NumberFormatException nfe) {
-            return null;
-        }
-    }
-
-    private <E extends Enum<E>> E tryParseEnum(Class<E> clazz, String arg) {
-        try {
-            return Enum.valueOf(clazz, arg);
-        }
-        catch (IllegalArgumentException iae) {
-            return null;
-        }
-    }
-
-    private Aspect parseAspect(String tag) {
-        var aspect = Aspect.getAspect(tag);
-        if (aspect != null) {
-            return aspect;
-        }
-        for (var iAspect : Aspect.aspects.values()) {
-            if (iAspect.getTag().equalsIgnoreCase(tag))
-            {
-                return iAspect;
-            }
-        }
-        return null;
     }
 
     @Override
