@@ -70,6 +70,19 @@ Usage: `/tmixins listResearch <player> [search text...]`
 
 Returns the named player's list of completed research keys. Can optionally be filtered by search text.
 
+### updateNode
+Usage: `/tmixins updateNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]] [-r <aspect1>[ -r <aspect2>[ ...]]]`
+
+|        Argument        | Description                                                                  |
+|:----------------------:|:-----------------------------------------------------------------------------|
+|     `<x> <y> <z>`      | Required. The coordinates of the node to update.                             |
+|    `-t <node_type>`    | Optional. Replace the node's type (hungry, pure, etc).                       |
+|  `-m <node_modifier>`  | Optional. Replace the node's modifier (bright, fading, pale, or none).       |
+| `-a <aspect> <amount>` | Optional. Set the node's capacity in the chosen aspect to the chosen amount. |
+|     `-r <aspect>`      | Optional. Remove the chosen aspect from the node.                            |
+
+Update an existing node at the specified coordinates.
+
 ### summonNode
 Usage: `/tmixins summonNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [--small] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]]`
 
