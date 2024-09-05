@@ -70,8 +70,34 @@ Usage: `/tmixins listResearch <player> [search text...]`
 
 Returns the named player's list of completed research keys. Can optionally be filtered by search text.
 
+### updateNode
+Usage: `/tmixins updateNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]] [-r <aspect1>[ -r <aspect2>[ ...]]]`
+
+|        Argument        | Description                                                                  |
+|:----------------------:|:-----------------------------------------------------------------------------|
+|     `<x> <y> <z>`      | Required. The coordinates of the node to update.                             |
+|    `-t <node_type>`    | Optional. Replace the node's type (hungry, pure, etc).                       |
+|  `-m <node_modifier>`  | Optional. Replace the node's modifier (bright, fading, pale, or none).       |
+| `-a <aspect> <amount>` | Optional. Set the node's capacity in the chosen aspect to the chosen amount. |
+|     `-r <aspect>`      | Optional. Remove the chosen aspect from the node.                            |
+
+Update an existing node at the specified coordinate.
+
+### summonNode
+Usage: `/tmixins summonNode <x> <y> <z> [-t <node_type>] [-m <node_modifier>] [--small] [-a <aspect1> <amount1>[ -a <aspect2> <amount2>[ ...]]]`
+
+|        Argument        | Description                                                                                                                                                                                                      |
+|:----------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     `<x> <y> <z>`      | Required. The coordinates at which to create a new node.                                                                                                                                                         |
+|    `-t <node_type>`    | Optional. Specify the new node's type (hungry, pure, etc). If not set, node type will be random.                                                                                                                 |
+|  `-m <node_modifier>`  | Optional. Specify the new node's modifier (bright, fading, pale, or none). If not set, node modifier will be random.                                                                                             |
+|       `--small`        | Optional. If set, the node will generate with few aspects in low capacities. No effect if any aspects are specified by `-a`.                                                                                     |
+| `-a <aspect> <amount>` | Optional. Overrides `--small`. If set, the node will have the specified amount of the specified aspect. Can be set multiple times, adding a new aspect each time. If not set, the node's aspects will be random. |
+
+Summon a random node at the specified coordinates. The node's properties can be overridden by specifying additional optional arguments.
+
 # Credits
 
 * Unicorn Blood - Main Dev
 * GTNH + jss2a98aj - Helping me with random bugs
-* rndmorris - tmixins command
+* rndmorris - `/tmixins` command, and `/thaumcraft` auto-complete
