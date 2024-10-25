@@ -16,18 +16,22 @@ A mod to add more configuration to Thaumcraft 4. Possibly bugfixes as well.
 * Whitelist for what dimensions nodes spawn in
 * Admin command to list and trim player research and scans
 * Auto-completion support for the `/thaumcraft` command
+* Whitelist config for adding more possible champion mobs
+* Blacklist config to remove champion mobs added by other mods
 
 # Planned Features
 
 * Toggle for village structure spawns
 * Fix the maze generation
-* Whitelist config for adding more possible champion mobs
 * Fix Excavation and Equal Trade foci being able to mine anything.
 * Whitelist for structures to spawn in other dimensions
 * Up frequency of champion mobs in certain dimensions / biomes?
 * Better tooltip coloring, like for vis discounts?
 
 # `/tmixins` Command
+
+<details>
+<summary>Spoiler</summary>
 
 ## Sub-commands
 ### findResearch
@@ -69,6 +73,10 @@ Usage: `/tmixins listResearch <player> [search text...]`
 | search text | Only completed research whose key contains this text will be returned. The text can contain spaces. |
 
 Returns the named player's list of completed research keys. Can optionally be filtered by search text.
+
+
+</details>
+
 
 # Credits
 
