@@ -5,6 +5,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import xyz.uniblood.thaumicmixins.commands.CommandThaumicMixins;
 import xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig;
+import xyz.uniblood.thaumicmixins.whitelisting.ChampionWhitelist;
 
 import java.io.File;
 
@@ -15,16 +16,16 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         String configFolder = event.getModConfigurationDirectory().getAbsolutePath() + File.separator;
         ThaumicMixinsConfig.synchronizeConfiguration(new File(configFolder + "ThaumicMixins.cfg"));
-
-//        ThaumicMixins.LOG.info(ThaumicMixinsConfig.greeting);
-        ThaumicMixins.LOG.info("I am MyMod at version " + Tags.VERSION);
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {}
+    public void init(FMLInitializationEvent event) {
+    }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {}
+    public void postInit(FMLPostInitializationEvent event) {
+        new ChampionWhitelist();
+    }
 
     // register server commands in this event handler (Remove if not needed)
     public void serverStarting(FMLServerStartingEvent event) {

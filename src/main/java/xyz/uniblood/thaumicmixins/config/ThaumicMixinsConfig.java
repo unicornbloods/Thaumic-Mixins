@@ -10,6 +10,7 @@ public class ThaumicMixinsConfig {
     static final String categoryCommands = "commands";
     static final String categoryStructures = "structures";
     static final String categoryLoot = "loot";
+    static final String categoryEntities = "entities";
 
     // Commands
     public static boolean enableCommand = true;
@@ -35,6 +36,24 @@ public class ThaumicMixinsConfig {
     // Loot
     public static boolean championLootBagEnabled = true;
     public static int championLootBagRarityMax = 2;
+
+    // Entities
+    public static String[] championMobBlacklist = {
+      "Creeper",
+      "Thaumcraft.GiantBrainyZombie"
+    };
+    public static String[] championMobWhitelist = {
+      "Zombie:0",
+      "Spider:0",
+      "Blaze:0",
+      "Enderman:0",
+      "Skeleton:0",
+      "Witch:1",
+      "Thaumcraft.EldritchCrab:0",
+      "Thaumcraft.Taintacle:2",
+      "Thaumcraft.Wisp:1",
+      "Thaumcraft.InhabitedZombie:3"
+    };
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -62,6 +81,11 @@ public class ThaumicMixinsConfig {
         // Loot
         championLootBagEnabled = configuration.getBoolean("Champion Loot Bag Drop Enabled", categoryLoot, championLootBagEnabled,"Toggle champion mobs dropping loot bags");
         championLootBagRarityMax = configuration.getInt("Max Champion Loot Bag Rarity", categoryLoot, championLootBagRarityMax, 0, 2, "Set max rarity for champion mob loot bags [0 = common, 1 = uncommon, 2 = rare]");
+
+        // Entities
+        championMobBlacklist = configuration.getStringList("Champion mob Blacklist", categoryEntities, championMobBlacklist, "Add mobs to remove them from the default champion lists");
+
+        championMobWhitelist = configuration.getStringList("Champion mob Whitelist", categoryEntities, championMobWhitelist, "Add mobs to have them potentially spawn as champions");
 
         if (configuration.hasChanged()) {
             configuration.save();
