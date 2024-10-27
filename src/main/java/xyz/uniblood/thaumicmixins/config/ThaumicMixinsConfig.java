@@ -35,6 +35,8 @@ public class ThaumicMixinsConfig {
     public static boolean moundRareLootEnabled = true;
     public static int[] auraNodeDimWhitelist = {0, 7};
 
+    public static int[] oreDimWhitelist = {0, 7};
+
     // Loot
     public static boolean championLootBagEnabled = true;
     public static int championLootBagRarityMax = 2;
@@ -81,6 +83,8 @@ public class ThaumicMixinsConfig {
 
         moundRareLootEnabled = configuration.getBoolean("Mound Rare Loot Enabled", categoryStructures, moundRareLootEnabled,"Remove Rare Urns and Crates from the mounds");
         auraNodeDimWhitelist = configuration.get(categoryStructures, "Aura Node Dimension Whitelist",  auraNodeDimWhitelist, "").getIntList();
+
+        oreDimWhitelist = configuration.get(categoryStructures, "Ore gen Dimension Whitelist",  oreDimWhitelist, "").getIntList();
 
         // Loot
         championLootBagEnabled = configuration.getBoolean("Champion Loot Bag Drop Enabled", categoryLoot, championLootBagEnabled,"Toggle champion mobs dropping loot bags");
