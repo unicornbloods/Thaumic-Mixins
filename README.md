@@ -18,9 +18,12 @@ A mod to add more configuration to Thaumcraft 4. Possibly bugfixes as well.
 * Auto-completion support for the `/thaumcraft` command
 * Whitelist config for adding more possible champion mobs
 * Blacklist config to remove champion mobs added by other mods
+* Add recipe for Ancient Stone items
 
 # Bugfixes
 * Restrict BlockCosmeticSolid so only Thaumium Blocks register as a beacon base
+* Index out of bounds errors for various items
+* Add support for Baubles Expanded slots
 
 # Planned Features
 
