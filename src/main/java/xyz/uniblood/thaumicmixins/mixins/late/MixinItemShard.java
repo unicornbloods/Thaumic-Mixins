@@ -1,7 +1,5 @@
 package xyz.uniblood.thaumicmixins.mixins.late;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +15,6 @@ public abstract class MixinItemShard extends Item {
      * @reason Prevents an array out of bounds exception when metadata greater than 6 is used.
      */
     @Overwrite()
-    @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int par2) {
         final int itemDamage = stack.getItemDamage();
 
