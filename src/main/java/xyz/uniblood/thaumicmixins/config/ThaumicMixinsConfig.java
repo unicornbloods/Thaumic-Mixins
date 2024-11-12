@@ -7,14 +7,13 @@ import net.minecraftforge.common.config.Configuration;
 public class ThaumicMixinsConfig {
 
     //Category names
-    static final String categoryBlocks = "blocks";
     static final String categoryCommands = "commands";
     static final String categoryStructures = "structures";
     static final String categoryLoot = "loot";
     static final String categoryEntities = "entities";
 
     // Blocks
-    public static int[] blockCosmeticSolidBeaconMetadataValues = new int[] { 4 };
+    public static int thaumiumBlockMetadata = 4;
 
     // Commands
     public static boolean enableCommand = true;
@@ -65,9 +64,6 @@ public class ThaumicMixinsConfig {
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
-
-        // Blocks
-        blockCosmeticSolidBeaconMetadataValues = configuration.get(categoryBlocks, "blockCosmeticSolidBeaconMetadata", blockCosmeticSolidBeaconMetadataValues, "Which metadata values for BlockCosmeticSolid are valid beacon base blocks.").getIntList();
 
         // Commands
         enableCommand = configuration.getBoolean("Enable Command", categoryCommands, enableCommand, "Enable the /tmixins command");
