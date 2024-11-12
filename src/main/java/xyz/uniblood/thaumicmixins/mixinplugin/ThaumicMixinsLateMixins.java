@@ -24,6 +24,7 @@ public class ThaumicMixinsLateMixins implements ILateMixinLoader {
         mixins.add("MixinEventHandlerEntity");
         mixins.add("MixinThaumcraftCommand");
         mixins.add("MixinBlockCosmeticSolid");
+        mixins.add("MixinItemShard");
         return mixins;
     }
 }
