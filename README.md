@@ -18,6 +18,7 @@ A mod to add more configuration to Thaumcraft 4. Possibly bugfixes as well.
 * Auto-completion support for the `/thaumcraft` command
 * Whitelist config for adding more possible champion mobs
 * Blacklist config to remove champion mobs added by other mods
+* Config for which BlockCosmeticSolid metadata values are beacon base blocks
 
 # Planned Features
 
