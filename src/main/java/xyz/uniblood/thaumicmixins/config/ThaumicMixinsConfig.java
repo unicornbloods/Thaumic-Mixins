@@ -14,7 +14,7 @@ public class ThaumicMixinsConfig {
     static final String categoryEntities = "entities";
 
     // Blocks
-    public static int[] blockCosmeticSolidBeaconMetadatas = new int[] { 4 };
+    public static int[] blockCosmeticSolidBeaconMetadataValues = new int[] { 4 };
 
     // Commands
     public static boolean enableCommand = true;
@@ -67,7 +67,7 @@ public class ThaumicMixinsConfig {
         Configuration configuration = new Configuration(configFile);
 
         // Blocks
-        blockCosmeticSolidBeaconMetadatas = configuration.get(categoryBlocks, "blockCosmeticSolidBeaconMetadatas", blockCosmeticSolidBeaconMetadatas, "Which metadata values for BlockCosmeticSolid are valid beacon base blocks.").getIntList();
+        blockCosmeticSolidBeaconMetadataValues = configuration.get(categoryBlocks, "blockCosmeticSolidBeaconMetadata", blockCosmeticSolidBeaconMetadataValues, "Which metadata values for BlockCosmeticSolid are valid beacon base blocks.").getIntList();
 
         // Commands
         enableCommand = configuration.getBoolean("Enable Command", categoryCommands, enableCommand, "Enable the /tmixins command");

@@ -27,7 +27,7 @@ public abstract class MixinBlockCosmeticSolid extends Block {
 
     @Unique
     private boolean thaumic_Mixins$isConfigMetadata(int metadata) {
-        for (var configMetadata : ThaumicMixinsConfig.blockCosmeticSolidBeaconMetadatas) {
+        for (var configMetadata : ThaumicMixinsConfig.blockCosmeticSolidBeaconMetadataValues) {
             if (metadata == configMetadata) {
                 return true;
             }
