@@ -3,6 +3,7 @@ package xyz.uniblood.thaumicmixins.mixinplugin;
 
 import com.gtnewhorizon.gtnhmixins.ILateMixinLoader;
 import com.gtnewhorizon.gtnhmixins.LateMixin;
+import xyz.uniblood.thaumicmixins.config.ThaumicMixinsConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class ThaumicMixinsLateMixins implements ILateMixinLoader {
         mixins.add("MixinWorldGenMound");
         mixins.add("MixinEventHandlerEntity");
         mixins.add("MixinThaumcraftCommand");
+        mixins.add("MixinBlockCosmeticSolid");
         return mixins;
     }
 }
