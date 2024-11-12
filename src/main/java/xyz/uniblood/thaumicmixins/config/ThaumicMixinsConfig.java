@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 public class ThaumicMixinsConfig {
 
     //Category names
+    static final String categoryBugfixes = "bugfixes";
     static final String categoryCommands = "commands";
     static final String categoryStructures = "structures";
     static final String categoryLoot = "loot";
@@ -14,6 +15,9 @@ public class ThaumicMixinsConfig {
 
     // Blocks
     public static int thaumiumBlockMetadata = 4;
+
+    // Bugfixes
+    public static boolean enableCosmeticSolidBeaconFix = true;
 
     // Commands
     public static boolean enableCommand = true;
@@ -64,6 +68,9 @@ public class ThaumicMixinsConfig {
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
+
+        // Bugfixes
+        enableCosmeticSolidBeaconFix = configuration.getBoolean("Enable BlockCosmeticSolid Beacon Fix", categoryBugfixes, enableCosmeticSolidBeaconFix, "Restrict BlockCosmeticSolid so only Thaumium Blocks are registered as beacon base blocks. Disable to resume normal behavior (i.e. allowing Tallow Blocks and Arcane Stone Blocks, among others, to register as beacon base blocks).");
 
         // Commands
         enableCommand = configuration.getBoolean("Enable Command", categoryCommands, enableCommand, "Enable the /tmixins command");
