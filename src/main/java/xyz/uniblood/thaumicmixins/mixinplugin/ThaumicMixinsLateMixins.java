@@ -29,6 +29,7 @@ public class ThaumicMixinsLateMixins implements ILateMixinLoader {
         mixins.add("MixinBlockCosmeticSolid");
         mixins.add("MixinEventHandlerRunic");
         mixins.add("MixinWarpEvents");
+        mixins.add("MixinWandManager");
 
         if (client) {
             mixins.add("MixinItemShard");
