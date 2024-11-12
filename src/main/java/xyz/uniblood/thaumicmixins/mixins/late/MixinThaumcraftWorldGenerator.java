@@ -33,16 +33,16 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
     HashMap<Integer, Boolean> structureNode;
 
     @Shadow
-    abstract void generateVegetation(World world, Random random, int chunkX, int chunkZ, boolean newGen);
+    protected abstract void generateVegetation(World world, Random random, int chunkX, int chunkZ, boolean newGen);
 
     @Shadow
-    abstract void generateOres(World world, Random random, int chunkX, int chunkZ, boolean newGen);
+    protected abstract void generateOres(World world, Random random, int chunkX, int chunkZ, boolean newGen);
 
     @Shadow
-    abstract boolean generateWildNodes(World world, Random random, int chunkX, int chunkZ, boolean auraGen, boolean newGen);
+    protected abstract boolean generateWildNodes(World world, Random random, int chunkX, int chunkZ, boolean auraGen, boolean newGen);
 
     @Shadow
-    abstract boolean generateTotem(World world, Random random, int chunkX, int chunkZ, boolean auraGen, boolean newGen);
+    protected abstract boolean generateTotem(World world, Random random, int chunkX, int chunkZ, boolean auraGen, boolean newGen);
 
     /**
      * @author UnicornBlood
@@ -56,7 +56,7 @@ public abstract class MixinThaumcraftWorldGenerator implements IWorldGenerator {
             this.generateVegetation(world, random, chunkX, chunkZ, newGen);
         }
 
-        if(blacklist != 0 && blacklist != 2) {
+        if(ArrayUtils.contains(oreDimWhitelist, world.provider.dimensionId)) {
             this.generateOres(world, random, chunkX, chunkZ, newGen);
         }
 

@@ -7,10 +7,17 @@ import net.minecraftforge.common.config.Configuration;
 public class ThaumicMixinsConfig {
 
     //Category names
+    static final String categoryBugfixes = "bugfixes";
     static final String categoryCommands = "commands";
     static final String categoryStructures = "structures";
     static final String categoryLoot = "loot";
     static final String categoryEntities = "entities";
+
+    // Blocks
+    public static int thaumiumBlockMetadata = 4;
+
+    // Bugfixes
+    public static boolean enableCosmeticSolidBeaconFix = true;
 
     // Commands
     public static boolean enableCommand = true;
@@ -34,6 +41,8 @@ public class ThaumicMixinsConfig {
 
     public static boolean moundRareLootEnabled = true;
     public static int[] auraNodeDimWhitelist = {0, 7};
+
+    public static int[] oreDimWhitelist = {0, 7};
 
     // Loot
     public static boolean championLootBagEnabled = true;
@@ -60,6 +69,10 @@ public class ThaumicMixinsConfig {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
+        // Bugfixes
+        enableCosmeticSolidBeaconFix = configuration.getBoolean("Enable BlockCosmeticSolid Beacon Fix", categoryBugfixes, enableCosmeticSolidBeaconFix, "Restrict BlockCosmeticSolid so only Thaumium Blocks are registered as beacon base blocks. Disable to resume normal behavior (i.e. allowing Tallow Blocks and Arcane Stone Blocks, among others, to register as beacon base blocks).");
+
+        // Commands
         enableCommand = configuration.getBoolean("Enable Command", categoryCommands, enableCommand, "Enable the /tmixins command");
         commandPermissionLevel = configuration.getInt("Command Required Permission Level", categoryCommands, commandPermissionLevel, 0, 4, "0 (all), 1 (moderator), 2 (gamemaster), 3 (admin), and 4 (owner)");
         enableFindResearch = configuration.getBoolean("findResearch Enabled", categoryCommands, enableFindResearch, "Enable the 'findResearch' subcommand");
@@ -81,6 +94,8 @@ public class ThaumicMixinsConfig {
 
         moundRareLootEnabled = configuration.getBoolean("Mound Rare Loot Enabled", categoryStructures, moundRareLootEnabled,"Remove Rare Urns and Crates from the mounds");
         auraNodeDimWhitelist = configuration.get(categoryStructures, "Aura Node Dimension Whitelist",  auraNodeDimWhitelist, "").getIntList();
+
+        oreDimWhitelist = configuration.get(categoryStructures, "Ore gen Dimension Whitelist",  oreDimWhitelist, "").getIntList();
 
         // Loot
         championLootBagEnabled = configuration.getBoolean("Champion Loot Bag Drop Enabled", categoryLoot, championLootBagEnabled,"Toggle champion mobs dropping loot bags");
