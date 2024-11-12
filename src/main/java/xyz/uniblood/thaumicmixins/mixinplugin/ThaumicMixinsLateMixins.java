@@ -29,6 +29,7 @@ public class ThaumicMixinsLateMixins implements ILateMixinLoader {
         mixins.add("MixinBlockCosmeticSolid");
         mixins.add("MixinItemShard");
         mixins.add("MixinEventHandlerRunic");
+        mixins.add("MixinWarpEvents");
 
         // Just remove this check after bugtorch removes the mixins
         if (!Loader.isModLoaded("bugtorch")) {
